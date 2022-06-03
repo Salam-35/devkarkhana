@@ -1,4 +1,4 @@
-#task:01 Make a list of users containing a minimum of 50 points and sort them according to the point and display their full name, point, and company name only.
+# task:01 Make a list of users containing a minimum of 50 points and sort them according to the point and display their full name, point, and company name only.
 
 The output:
 full name : Ken Stoltenberg
@@ -109,11 +109,11 @@ full name : Pinkie Trantow
 points of the user: 99
 Company name: Champlin LLC
 
-#task02: Count how many users got more than 20 and less than 50 point and display the value/
+# task02: Count how many users got more than 20 and less than 50 point and display the value/
 
 The output: 17
 
-#task3: Find the point of a user whose email is 'Tristian7@yahoo.com'.Display the point and list the users containing that point and display their email addresses.
+# task3: Find the point of a user whose email is 'Tristian7@yahoo.com'.Display the point and list the users containing that point and display their email addresses.
 
 
 point For the  user Tristian7@yahoo.com  is 77
