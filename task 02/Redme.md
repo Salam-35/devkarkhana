@@ -1,7 +1,7 @@
 # task:01 Make a list of users containing a minimum of 50 points and sort them according to the point and display their full name, point, and company name only.
 
 The output:
-full name : Ken Stoltenberg
+full name : Ken Stoltenberg]
 points of the user: 50
 Company name: Koepp LLC
 
