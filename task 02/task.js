@@ -401,7 +401,7 @@ const data = [{
 ];
 
 
-console.log("task:01 Make a list of users containing a minimum of 50 points and sort them according to\n" +
+console.log("###### task:01 Make a list of users containing a minimum of 50 points and sort them according to\n" +
     "the point and display their full name, point, and company name only.\n\nThe output: ");
 let total = 0;
 
@@ -411,54 +411,43 @@ data.forEach(v => {
         task1.push(v)
 });
 
+
 task1.sort(function(a, b) {
     return a.point - b.point;
 });
 
 task1.forEach(v => {
-    console.log('full name : ' + v.firstName + " " + v.lastName);
-    console.log("points of the user: " + v.point);
-    console.log("Company name: " + v.company + "\n");
+    console.log('full name : ' + v.firstName + " " + v.lastName + "\n");
+    console.log("points of the user: " + v.point + "\n");
+    console.log("Company name: " + v.company + "\n\n\n");
 });
 
 //Task 2
 
-console.log("Count how many users got more than 20 and less than 50 point and display the value/\n\nThe output: ")
+console.log("###### task2: Count how many users got more than 20 and less than 50 point and display the value/\n\nThe output: ")
 data.forEach((v) => {
     if (v.point > 20 && v.point < 50)
         total = total + 1;
 })
 
-console.log(total);
+console.log(total + "\n");
 
 
-console.log("task3: Find the point of a user whose email is 'Tristian7@yahoo.com'." +
+
+
+
+console.log("###### task3: Find the point of a user whose email is 'Tristian7@yahoo.com'." +
     "Display the point and list the users containing that point and display their email addresses.\n\n")
 let pointForTheUser;
 data.forEach((v) => {
-
     if (v.email == 'Tristian7@yahoo.com')
         pointForTheUser = v.point;
 })
 
-console.log('point For the  user Tristian7@yahoo.com  is ' + pointForTheUser);
-console.log('email addresses of the users that got the point: ');
+console.log('point For the  user Tristian7@yahoo.com  is ' + pointForTheUser + "\n");
+console.log('email addresses of the users that got the point: ' + pointForTheUser + " \n");
+
 data.forEach((v) => {
     if (v.point == pointForTheUser)
-        console.log(v.email);
+        console.log(v.email + "\n");
 })
-
-// data.forEach((v)=>{
-//     if (vals[v.point]){
-//         vals[v.point] += 1;
-//     }
-//     else{
-//         vals[v.point] = 1
-//     }
-// })
-
-// for (let i in vals){
-//     if (vals[i]>1){
-//         console.log(`${i} ---> ${vals[i]}`)
-//     }
-// }
