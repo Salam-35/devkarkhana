@@ -8,28 +8,26 @@ var digit = parseInt(binary, 2);
 console.log(digit);
 
 
+let arr = [2, 3, [5, 6, [7, 8], 9]];
+arr = arr.flat(1000000);
+let mx = Math.max(...arr);
+let mn = Math.min(...arr);
 
-let input = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?"
+console.log(arr);
+console.log("min is " + mn + " and max " + mx);
 
-const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-let Input = input.replace(regex, '');
+
+let input = "Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?"
+
+const puncuatin = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+let Input = input.replace(puncuatin, '');
 let frequency = [];
 Input = Input.split(' ');
 Input.forEach((i) => {
     if (!frequency[i]) {
         frequency[i] = 0;
     }
-    frequency[i] = frequency[i] + 1;
+    frequency[i]++;
 });
 
 console.table(frequency);
-
-
-
-let arr = [2, 3, [5, 6, [7, 8], 9]];
-arr = arr.flat(2);
-let mx = Math.max(...arr);
-let mn = Math.min(...arr);
-
-console.log(arr);
-console.log("min is " + mn + " and max " + mx);
