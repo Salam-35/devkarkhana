@@ -417,6 +417,8 @@ function loadTableData(userData) {
                         <td>${data.firstName}  ${data.lastName}</td>
                         <td>${data.email}</td>
                         <td>${data.point}</td>
+                        <td>${data.phone}</td>
+                        <td>${data.company}</td>
                         <td><input type="button" value="Show"  onclick="show(this)" /></td>
                         </tr>`;
     });
@@ -466,6 +468,8 @@ if (searchBtn)
                         <td>${data.firstName}  ${data.lastName}</td>
                         <td>${data.email}</td>
                         <td>${data.point}</td>
+                        <td>${data.phone}</td>
+                        <td>${data.company}</td>
                         <td><input type="button" value="Show"  onclick="show()" /></td>
                         </tr>`;
 

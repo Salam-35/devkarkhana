@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>show BMI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel=“stylesheet” type=“text/css” href=“style.css” />
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#" style="color: rgb(245, 241, 3); font-family: consolas; font-weight: bolder;" ;>Calculate.Salam</a>
+            <!-- <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarNav " aria-controls="navbarNav " aria-expanded="false " aria-label="Toggle navigation ">
+    <span class="navbar-toggler-icon "></span>
+  </button> -->
+            <div class="collapse navbar-collapse " id="navbarNav ">
+                <ul class="navbar-nav ">
+                    <li class="nav-item active ">
+                        <a class="nav-link " href="./index.html ">Home <span class="sr-only ">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </nav>
+
+    <div class="container ">
+
+        <div class="card ">
+            <div class="card-header text-center " style="font-weight: bold; font-family: consolas; font-size: 30px; "> BMI Calculator</div>
+            <div class="card-body ">
+
+                <form class="w-50 m-auto " onsubmit="return false ">
+                    <div class="form-group ">
+                        <label>Height</label>
+                        <input id="height" required type="text " name=" " placeholder="Weight in Kg" id="weight " class="form-control ">
+                    </div>
+                    <div class="form-group ">
+                        <label>Weight</label>
+                        <input id="weight" required type="text " name=" " placeholder="Weight in Kg" id="weight " class="form-control ">
+                    </div>
+                    <div class="form-group ">
+                        <label>Your BMI</label>
+                        <input type=" " name=" " id="showBMI" class="form-control">
+                    </div>
+                    <div class="form-group ">
+                        <button id="btnBMI" type="submit " class="btn btn-success " onclick="getBMI() ">Calculate</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="card-footer text-center " style="font-weight: bold; font-family: consolas; font-size: 20px; color: green; ">Healthy BMI range between 19 to 25</div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="src.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js " integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2 " crossorigin="anonymous "></script>
+
+
+
+</body>
+
+</html>

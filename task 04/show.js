@@ -34,7 +34,14 @@ let user = getQueryVariable('user');
 console.log(user);
 let data = JSON.parse(user);
 let userDataHtml = "";
-userDataHtml += `<h1>${data.firstName}  ${data.lastName}</h1>
+userDataHtml += `<h2>Full Name: </h2>
+<h1>${data.firstName}  ${data.lastName}</h1>
+                        <h2>Email address</h2>
                         <h1>${data.email}</h1>
-                        <h1>${data.point}</h1>`
+                        <h2>Points: </h2>
+                        <h1>${data.point}</h1>
+                        <h2>Phone Number: </h2>
+                        <h1>${data.phone}</h1>
+                        <h2>Company</h2>
+                        <h1>${data.company}</h1>`
 document.getElementById('pasteuser').innerHTML = userDataHtml;

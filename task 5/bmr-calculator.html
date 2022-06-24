@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculate.Salam</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel=“stylesheet” type=“text/css” href=“style.css” />
+</head>
+
+<body>
+
+    <style>
+        .nav-link {
+            color: green;
+        }
+        
+        .nav-item>a:hover {
+            color: green;
+        }
+        /*code to change background color*/
+        
+        .navbar-nav>.active>a {
+            background-color: #f5ed07;
+            color: green;
+        }
+    </style>
+    <nav class="navbar navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#" style="color: rgb(245, 241, 3); font-family: consolas; font-weight: bolder;" ;>Calculate.Salam</a>
+            <!-- <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarNav " aria-controls="navbarNav " aria-expanded="false " aria-label="Toggle navigation ">
+    <span class="navbar-toggler-icon "></span>
+  </button> -->
+            <div class="collapse navbar-collapse " id="navbarNav ">
+                <ul class="navbar-nav ">
+                    <li class="nav-item active ">
+                        <a class="nav-link " href="./index.html ">Fitness & Health <span class="sr-only ">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./financial.html">Financial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="">Math</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </nav>
+    <div style="padding-left:20px" ;>
+        <h2>BMR Calculator</h2>
+        <p>The <span style="font-style: italic;">
+            The Basal Metabolic Rate (BMR)</span> Calculator estimates your basal metabolic rate—the amount of energy expended while at rest in a neutrally temperate environment, and in a post-absorptive state (meaning that the digestive system is inactive,
+            which requires about 12 hours of fasting)</p>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <div class="container ">
+
+                <div class="card ">
+                    <div class="card-header text-center " style="font-weight: bold; font-family: consolas; font-size: 30px; ">BMR Calculator</div>
+                    <div class="card-body ">
+
+                        <form class="w-50 m-auto " onsubmit="return false " id="calorie-form">
+                            <div class="form-group ">
+                                <label>Enter your Age</label>
+                                <input id="age" required type="text " name=" " placeholder="Age" id="age " class="form-control ">
+                            </div>
+                            <!-- <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div> -->
+                            <!-- <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                    </div> -->
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="male" value="male" checked="checked">
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="female" value="female">
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+
+
+                            <div class="form-group ">
+                                <label>Height</label>
+                                <input id="height" required type="text " name=" " placeholder="Height in cm " id="Weight " class="form-control ">
+                            </div>
+                            <div class="form-group ">
+                                <label>Weight</label>
+                                <input id="weight" required type="text " name=" " placeholder="Weight in Kg" id="weight " class="form-control ">
+                            </div>
+
+                            <div class="form-group ">
+                                <button id="btnBMR" type="submit " class="btn btn-success " onclick="getBMR()">Calculate</button>
+                            </div>
+
+                            <!-- <div class="form-group">
+                        <input type="submit" value="Calculate" class="btn btn-dark btn-block">
+                    </div>
+                </form>
+                <div id="loading" style="display:false ;">
+                    <img src="./img/Loading.gif" alt="">
+                </div> -->
+
+                            <!-- result -->
+
+                    </div>
+                    <div class="card-footer text-center " style="font-weight: bold; font-family: consolas; font-size: 20px; color: green; ">Exercise and be Healthy</div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container ">
+
+                <div class="card ">
+                    <div class="card-header text-center " style="font-weight: bold; font-family: consolas; font-size: 30px; ">Calories needed</div>
+                    <div class="card-body ">
+                        <div class="form-group ">
+                            <input type=" " name=" " id="showCALORIE" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center " style="font-weight: bold; font-family: consolas; font-size: 20px; color: green; ">Exercise and be Healthy</div>
+                </div>
+            </div>
+            <div>
+                <p style="padding-top: 3%;">To determine your total daily calorie needs, multiply your BMR by the appropriate activity factor, as follows:</p>
+            </div>
+            <table class="table table-striped" style="width: 100%; height: 30px; font-size: 15px;">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Type of exercise</th>
+                        <th scope="col">Multiplication Factor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Sedentary (little or no exercise): calories</td>
+                        <td>BMR × 1.2</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Sedentary (little or no exercise): calories</td>
+                        <td>Calories= BMR × 1.2</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Lightly active (light exercise/sports 1-3 days/week):</td>
+                        <td> Calories= BMR × 1.38</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Moderately active (moderate exercise/sports 3-5 days/week):</td>
+                        <td> Calories= BMR × 1.55</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Very active (hard exercise/sports 6-7 days a week):</td>
+                        <td> Calories= BMR × 1.73</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>If you are extra active (very hard exercise/sports & a physical job):</td>
+                        <td> Calories= BMR × 1.9</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div id="aboutbmr" style="padding: 20px; width: 100%;">
+
+
+
+        <p>The basal metabolic rate (BMR) is the amount of energy needed while resting in a temperate environment when the digestive system is inactive. It is the equivalent of figuring out how much gas an idle car consumes while parked. In such a state,
+            energy will be used only to maintain vital organs, which include the heart, lungs, kidneys, nervous system, intestines, liver, lungs, sex organs, muscles, and skin. For most people, upwards of ~70% of total energy (calories) burned each day
+            is due to upkeep. Physical activity makes up ~20% of expenditure and ~10% is used for the digestion of food, also known as thermogenesis.</p>
+        <p>The BMR is measured under very restrictive circumstances while awake. An accurate BMR measurement requires that a person's sympathetic nervous system is inactive, which means the person must be completely rested. Basal metabolism is usually the
+            largest component of a person's total caloric needs. The daily caloric need is the BMR value multiplied by a factor with a value between 1.2 and 1.9, depending on activity level.</p>
+        <p>In most situations, the BMR is estimated with equations summarized from statistical data. The Harris-Benedict Equation was one of the earliest equations introduced. It was revised in 1984 to be more accurate and was used up until 1990, when the
+            Mifflin-St Jeor Equation was introduced. The Mifflin-St Jeor Equation has been shown to be more accurate than the revised Harris-Benedict Equation. The Katch-McArdle Formula is slightly different in that it calculates resting daily energy
+            expenditure (RDEE), which takes lean body mass into account, something that neither the Mifflin-St Jeor nor the Harris-Benedict Equation does. Of these equations, the Mifflin-St Jeor Equation is considered the most accurate equation for calculating
+            BMR with the exception that the Katch-McArdle Formula can be more accurate for people who are leaner and know their body fat percentage. You can pick the equation to be used in the calculation by expanding the settings.</p>
+        <a name="BMRformula"></a>
+        <p>The three equations used by the calculator are listed below:</p>
+        <p class="morelinespace">
+            <div><b>Mifflin-St Jeor Equation:</b></div>
+            <div style="padding-left:10px;">For men:</div>
+            <div style="text-align:center;">BMR = 10W + 6.25H - 5A + 5</div>
+            <div style="padding-left:10px;">For women:</div>
+            <div style="text-align:center;">BMR = 10W + 6.25H - 5A - 161</div>
+        </p>
+        <p class="morelinespace">
+            <div><b>Revised Harris-Benedict Equation:</b></div>
+            <div style="padding-left:10px;">For men:</div>
+            <div style="text-align:center;">BMR = 13.397W + 4.799H - 5.677A + 88.362</div>
+            <div style="padding-left:10px;">For women:</div>
+            <div style="text-align:center;">BMR = 9.247W + 3.098H - 4.330A + 447.593</div>
+        </p>
+        <p class="morelinespace">
+            <div><b>Katch-McArdle Formula:</b></div>
+            <div style="text-align:center;">BMR = 370 + 21.6(1 - F)W</div>
+        </p>
+        <p>where:<br>
+            <div style="padding-left:10px;">
+                W is body weight in kg<br> H is body height in cm<br> A is age<br> F is body fat in percentage
+            </div>
+        </p>
+
+        <h3>BMR Variables</h3>
+        <p><b>Muscle Mass</b> &ndash; Aerobic exercises, such as running or cycling, have no effect on BMR. However, anaerobic exercises, such as weight-lifting, indirectly lead to a higher BMR because they build muscle mass, increasing resting energy consumption.
+            The more muscle mass in the physical composition of an individual, the higher the BMR required to sustain their body at a certain level.</p>
+        <p><b>Age</b> &ndash; The more elderly and limber an individual, the lower their BMR, or the lower the minimum caloric intake required to sustain the functioning of their organs at a certain level.</p>
+        <p><b>Genetics</b> &ndash; Hereditary traits passed down from ancestors influence BMR.</p>
+        <p><b>Weather</b> &ndash; Cold environments raise BMR because of the energy required to create a homeostatic body temperature. Likewise, too much external heat can raise BMR as the body expends energy to cool off internal organs. BMR increases approximately
+            7% for every increase of 1.36 degrees Fahrenheit in the body's internal temperature.</p>
+        <p><b>Diet</b> &ndash; Small, routinely dispersed meals increase BMR. On the other hand, starvation can reduce BMR by as much as 30%. Similar to a phone that goes into power-saving mode during the last 5% of its battery, a human body will make sacrifices
+            such as energy levels, moods, upkeep of bodily physique, and brain functions in order to more efficiently utilize what little caloric energy is being used to sustain it.</p>
+        <p><b>Pregnancy</b> &ndash; Ensuring the livelihood of a separate fetus internally increases BMR. This is why pregnant women tend to eat more than usual. Also, menopause can increase or decrease BMR depending on hormonal changes.</p>
+        <p><b>Supplements</b> &ndash; Certain supplements or drugs raise BMR, mostly to fuel weight loss. Caffeine is a common one.</p>
+
+        <h3>BMR Tests</h3>
+        <p>Online BMR tests with rigid formulas are not the most accurate method of determining an individual's BMR. It is better to consult a certified specialist or measure BMR through a calorimetry device. These handheld devices are available in many
+            health and fitness clubs, doctor offices, and weight-loss clinics.</p>
+
+        <h3>Resting Metabolic Rate</h3>
+        <p>While the two are used interchangeably, there is a key difference in their definitions. Resting metabolic rate, or RMR for short, is the rate at which the body burns energy in a relaxed, but not fully inactive state. It is also sometimes defined
+            as resting energy expenditure, or REE. BMR measurements must meet total physiological equilibrium while RMR conditions of measurement can be altered and defined by contextual limitations.</p>
+
+        <h3>Modern Wisdom</h3>
+        <p>A 2005 meta-analysis study on BMR* showed that when controlling all factors of metabolic rate, there is still a 26% unknown variance between people. Essentially, an average person eating an average diet will likely have expected BMR values, but
+            there are factors that are still not understood that determines BMR precisely. </p>
+        <p>Therefore, all BMR calculations, even using the most precise methods through specialists, will not be perfectly accurate in their measurements. Not all human bodily functions are well understood just yet, so calculating total daily energy expenditure
+            (TDEE) derived from BMR estimates are just that, estimates. When working towards any sort of health or fitness goal, BMR can aid in laying down the foundations, but from there on, it has little else to offer. A calculated BMR and thus TDEE
+            may result in unsatisfactory results because of their rough estimates, but maintaining a daily journal of exercise, food consumption, etc., can help track the factors that lead to any given results and help determine what works, as well as
+            what needs to be improved upon. Tracking progress in said journal and making adjustments over time as needed is generally the best indication of progress towards reaching personal goals. </p>
+
+        <h3>Reference</h3>
+        <p class="smalltext">* Johnstone AM, Murison SD, Duncan JS, Rance KA, Speakman JR, Factors influencing variation in basal metabolic rate include fat-free mass, fat mass, age, and circulating thyroxine but not sex, circulating leptin, or triiodothyronine1. Am J Clin
+            Nutr 2005; 82: 941-948.</p>
+
+
+    </div>
+
+
+
+    <script src="bmr.js"></script>
+
+</body>

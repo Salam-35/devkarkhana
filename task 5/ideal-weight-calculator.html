@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="title">Calculate.Salam</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel=“stylesheet” type=“text/css” href=“style.css” />
+</head>
+
+<body>
+
+    <style>
+        .nav-link {
+            color: green;
+        }
+        
+        .nav-item>a:hover {
+            color: green;
+        }
+        /*code to change background color*/
+        
+        .navbar-nav>.active>a {
+            background-color: #f5ed07;
+            color: green;
+        }
+    </style>
+    <nav class="navbar navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#" style="color: rgb(245, 241, 3); font-family: consolas; font-weight: bolder;" ;>Calculate.Salam</a>
+            <!-- <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarNav " aria-controls="navbarNav " aria-expanded="false " aria-label="Toggle navigation ">
+    <span class="navbar-toggler-icon "></span>
+  </button> -->
+            <div class="collapse navbar-collapse " id="navbarNav ">
+                <ul class="navbar-nav ">
+                    <li class="nav-item active ">
+                        <a class="nav-link " href="./index.html ">Fitness & Health <span class="sr-only ">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./financial.html">Financial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="">Math</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </nav>
+    <div style="padding-left:20px" ;>
+        <h2>Ideal Weight Calculator</h2>
+        <p>The <span style="font-style: italic;">
+            Ideal Weight Calculator</span> computes ideal body weight (IBW) ranges based on height, gender, and age. The idea of finding the IBW using a formula has been sought after by many experts for a long time. Currently, there persist several popular
+            formulas, and our Ideal Weight Calculator provides their results for side-to-side comparisons.</p>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <div class="container ">
+
+                <div class="card ">
+                    <div class="card-header text-center " style="font-weight: bold; font-family: consolas; font-size: 30px; ">Ideal Weight Calculator</div>
+                    <div class="card-body ">
+
+                        <form class="w-50 m-auto " onsubmit="return false " id="calorie-form">
+                            <div class="form-group ">
+                                <label>Enter your Age</label>
+                                <input id="age" required type="text " name=" " placeholder="Age" id="age " class="form-control ">
+                            </div>
+
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="male" value="male" checked="checked">
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="female" value="female">
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+
+
+                            <div class="form-group ">
+                                <label>Height</label>
+                                <input id="height" required type="text " name=" " placeholder="Height in cm " id="Weight " class="form-control ">
+                            </div>
+                            <div class="form-group ">
+                                <button id="btnIW" type="submit " class="btn btn-success " onclick="getIW()">Calculate</button>
+                            </div>
+
+                            <!-- <div class="form-group">
+                        <input type="submit" value="Calculate" class="btn btn-dark btn-block">
+                    </div>
+                </form>
+                <div id="loading" style="display:false ;">
+                    <img src="./img/Loading.gif" alt="">
+                </div> -->
+
+                            <!-- result -->
+
+                    </div>
+                    <div class="card-footer text-center " style="font-weight: bold; font-family: consolas; font-size: 20px; color: green; ">Exercise and be Healthy</div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container ">
+
+                <div class="card ">
+                    <div class="card-header text-center " style="font-weight: bold; font-family: consolas; font-size: 20px; ">Calculated Weight</div>
+                    <div class="card-body ">
+                        <table class="table table-striped" style="width: 100%; height: 30px; font-size: 15px;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Popuar Formula</th>
+                                    <th scope="col">Ideal Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody id="showResult">
+                                <tr>
+                                    <!-- <th scope="row">1</th> -->
+                                    <td>Sedentary (little or no exercise): calories</td>
+                                    <td>BMR × 1.2</td>
+
+                                </tr>
+                                <tr>
+                                    <!-- <th scope="row">1</th> -->
+                                    <td>Sedentary (little or no exercise): calories</td>
+                                    <td>Calories= BMR × 1.2</td>
+
+                                </tr>
+                                <tr>
+                                    <!-- <th scope="row">2</th> -->
+                                    <td>Lightly active (light exercise/sports 1-3 days/week):</td>
+                                    <td> Calories= BMR × 1.38</td>
+
+                                </tr>
+                                <tr>
+                                    <!-- <th scope="row">3</th> -->
+                                    <td>Moderately active (moderate exercise/sports 3-5 days/week):</td>
+                                    <td> Calories= BMR × 1.55</td>
+
+                                </tr>
+                                <tr>
+                                    <!-- <th scope="row">4</th> -->
+                                    <td>Very active (hard exercise/sports 6-7 days a week):</td>
+                                    <td> Calories= BMR × 1.73</td>
+
+                                </tr>
+                                <tr>
+                                    <!-- <th scope="row">5</th> -->
+                                    <td>If you are extra active (very hard exercise/sports & a physical job):</td>
+                                    <td> Calories= BMR × 1.9</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-center " style="font-weight: bold; font-family: consolas; font-size: 20px; color: green; ">Exercise and be Healthy</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div id="aboutIdealWeightCalculator" style="padding: 20px; width: 100%;">
+        <h3>How Much Should I Weigh?</h3>
+        <p>Most everyone has at some point tried to lose weight, or at least known somebody who has. This is largely due to the perception of an "ideal" body weight, which is often based on what we see promoted through various media such as social media,
+            TV, movies, magazines, etc. Although ideal body weight (IBW) today is sometimes based on perceived visual appeal, IBW was actually introduced to estimate dosages for medical use, and the formulas that calculate it are not at all related to
+            how a person looks at a given weight. It has since been determined that the metabolism of certain drugs is more based on IBW than it is total body weight. Today, IBW is also used widely throughout sports, since many sports classify people
+            based on their body weight.</p>
+        <p>Note that IBW is not a perfect measurement. It does not consider the percentages of body fat and muscle in a person's body. This means that it is possible for highly fit, healthy athletes to be considered overweight based on their IBW. This is
+            why IBW should be considered with the perspective that it is an imperfect measure and not necessarily indicative of health, or a weight that a person should necessarily strive toward; it is possible to be over or under your "IBW" and be perfectly
+            healthy.
+        </p>
+        <p>How much a person should weigh is not an exact science. It is highly dependent on each individual. Thus far, there is no measure, be it IBW, body mass index (BMI), or any other that can definitively state how much a person should weigh to be healthy.
+            They are only references, and it's more important to adhere to making healthy life choices such as regular exercise, eating a variety of unprocessed foods, getting enough sleep, etc. than it is to chase a specific weight based on a generalized
+            formula.
+        </p>
+        <p>That being said, many factors can affect the ideal weight; the major factors are listed below. Other factors include health conditions, fat distribution, progeny, etc.</p>
+
+        <p><b>Age</b></p>
+        <p>In theory, age shouldn't be a large determinant of an IBW past the ages of 14-15 for girls and 16-17 for boys, after which most people stop growing. It is actually expected that human males and females to lose 1.5 and 2 inches in height respectively
+            by age 70. It is important to remember that as people age, lean muscle mass decreases and it is easier to accumulate excess body fat. This is a natural process, though it is possible to lessen the effects of aging by adopting various habits
+            such as monitoring diet, exercise, stress, and sleep.</p>
+
+        <p><b>Gender</b></p>
+        <p>Generally, females weigh less than males even though they naturally have a higher percentage of body fat. This is because the male body generally has higher muscle mass, and muscle is heavier than fat. Not only that, but women generally have lower
+            bone density. Last but not least, males tend to be taller than females.</p>
+
+        <p><b>Height</b></p>
+        <p>The taller the person, the more muscle mass and body fat they have, which results in more weight. A male at a similar height to a female should weigh about 10-20% heavier.</p>
+
+        <p><b>Body Frame Size</b></p>
+        <p>Body frame size is another factor that can have a significant impact on the measurement of ideal weight. Body frame size is typically categorized as small, medium, or large boned. It is measured based on the circumference of a person's wrist in
+            relation to their height, as shown below.</p>
+        <p>For women:</p>
+        <ul>
+            <li>Height under 5'2"
+                <ul>
+                    <li>Small boned = wrist size less than 5.5"</li>
+                    <li>Medium boned = wrist size 5.5" to 5.75"</li>
+                    <li>Large boned = wrist size over 5.75"</li>
+                </ul>
+            </li>
+            <li>Height between 5'2" and 5' 5"
+                <ul>
+                    <li>Small boned = wrist size less than 6"</li>
+                    <li>Medium boned = wrist size 6" to 6.25"</li>
+                    <li>Large boned = wrist size over 6.25"</li>
+                </ul>
+            </li>
+            <li>Height over 5' 5"
+                <ul>
+                    <li>Small boned = wrist size less than 6.25"</li>
+                    <li>Medium boned = wrist size 6.25" to 6.5"</li>
+                    <li>Large boned = wrist size over 6.5"</li>
+                </ul>
+            </li>
+        </ul>
+        <p>For men:</p>
+        <ul>
+            <li>Height over 5' 5"
+                <ul>
+                    <li>Small boned = wrist size 5.5" to 6.5"</li>
+                    <li>Medium boned = wrist size 6.5" to 7.5"</li>
+                    <li>Large boned = wrist size over 7.5"</li>
+                </ul>
+            </li>
+        </ul>
+        <p>A person who is large boned will naturally weigh more than someone who is small boned, even at the same height, making body frame size a factor that can affect measurements such as IBW and BMI.</p>
+
+
+        <h3>Formulas for Finding the Ideal Weight</h3>
+        <p>IBW formulas were developed mainly to facilitate drug dosage calculations. All of the formulas, have the same format of a base weight given a height of 5 feet, with a set weight increment added per inch over the height of 5 feet. For example,
+            if you are a 5'10" male estimating your ideal weight with the Devine formula, you would add (2.3 &#215; 10) kg to 50 kg to get 73 kg, or ~161 lbs.</p>
+        <p>The formulas differ in the values used based on the research of the scientists involved in their development, and their findings. The Devine formula is the most widely used formula for the measurement of IBW.</p>
+
+        <p><b>G. J. Hamwi Formula (1964)</b></p>
+        <table align="center">
+            <tr>
+                <td>Male:</td>
+                <td>48.0 kg + 2.7 kg per inch over 5 feet</td>
+            </tr>
+            <tr>
+                <td>Female:</td>
+                <td>45.5 kg + 2.2 kg per inch over 5 feet</td>
+            </tr>
+        </table>
+        <p>Invented for medicinal dosage purposes.</p>
+
+        <p><b>B. J. Devine Formula (1974)</b></p>
+        <table align="center">
+            <tr>
+                <td>Male:</td>
+                <td>50.0 kg + 2.3 kg per inch over 5 feet</td>
+            </tr>
+            <tr>
+                <td>Female:</td>
+                <td>45.5 kg + 2.3 kg per inch over 5 feet</td>
+            </tr>
+        </table>
+        <p>Similar to the Hamwi Formula, it was originally intended as a basis for medicinal dosages based on weight and height. Over time, the formula became a universal determinant of IBW.</p>
+
+        <p><b>J. D. Robinson Formula (1983)</b></p>
+        <table align="center">
+            <tr>
+                <td>Male:</td>
+                <td>52 kg + 1.9 kg per inch over 5 feet</td>
+            </tr>
+            <tr>
+                <td>Female:</td>
+                <td>49 kg + 1.7 kg per inch over 5 feet</td>
+            </tr>
+        </table>
+        <p>Modification of the Devine Formula.</p>
+
+        <p><b>D. R. Miller Formula (1983)</b></p>
+        <table align="center">
+            <tr>
+                <td>Male:</td>
+                <td>56.2 kg + 1.41 kg per inch over 5 feet</td>
+            </tr>
+            <tr>
+                <td>Female:</td>
+                <td>53.1 kg + 1.36 kg per inch over 5 feet</td>
+            </tr>
+        </table>
+        <p>Modification of the Devine Formula.</p>
+
+        <p><b>Healthy BMI Range</b></p>
+        <p>The World Health Organization's (WHO) recommended healthy BMI range is 18.5 - 25 for both males and females. Based on the BMI range, it is possible to find out a healthy weight for any given height.</p>
+        <p>BMI is a commonly used metric for determining IBW. It is widely used in the medical field as a quick indicator of possible health complications. Generally, the higher the BMI, the higher the chance a person will suffer from health problems such
+            as obesity, diabetes, heart disease, and many more. It is an indicator used by doctors to advise their patients of potential health problems, especially if there is a noticeable progressive increase in their BMI, and is currently the official
+            metric for classifying individuals according to different obesity levels.</p>
+
+        <p><b>Healthy BMI Range for Children</b></p>
+        <p>All the formulas above are for adults age 18 or older. For children and teens, please refer to the following BMI charts published by the Centers for Disease Control and Prevention (CDC). The CDC recommends that children maintain a BMI between
+            the 5<sup>th</sup> and 85<sup>th</sup> percentile based on their age.</p>
+        <ol>
+            <li><a href="/pdf/chart-2015.pdf">CDC BMI chart for boys between ages 2 and 20</a></li>
+            <li><a href="/pdf/chart-2016.pdf">CDC BMI chart for girls between ages 2 and 20</a></li>
+        </ol>
+
+
+        <h3>Limitations of our IBW calculator</h3>
+        <p>There are limitations to all the formulas and methods. Because the formulas are designed to be as applicable to as wide a range of people as possible, they cannot be highly accurate for every single individual. The formulas factor only height
+            and gender, and there are no considerations for physical handicaps, people on the extreme ends of the spectrum, activity levels, or muscle mass to body fat ratios, otherwise known as body composition. Our Ideal Weight Calculator is meant to
+            be used as a general guideline based on popular formulas, and its results are not intended as strict values that a person must achieve to be considered an "ideal weight."</p>
+
+
+    </div>
+
+
+
+    <script>
+        function getIW() {
+            var age = document.getElementById('age').value;
+            var gender = document.querySelector('input[name="inlineRadioOptions"]:checked');
+            var height = parseFloat(document.getElementById('height').value);
+
+            if (!height || !age)
+                alert("Please Enter Values correctly");
+            height *= 0.393701;
+            console.log(height);
+            height = height - 60;
+
+            let calories;
+            var tabledata = "";
+            if (gender.id === "male") {
+                var idealWeiht = 48.0 + 2.7 * height;
+                tabledata += `<tr>
+                <td>G.J.Hamwi Formula(1964)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+
+                idealWeiht = 50.0 + 2.3 * height;
+                tabledata += `<tr>
+                <td>B. J. Devine Formula (1974)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+
+
+                idealWeiht = 52.0 + 1.9 * height;
+                tabledata += `<tr>
+                <td>J. D. Robinson Formula (1983)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+
+
+                idealWeiht = 56.2 + 1.41 * height;
+                tabledata += `<tr>
+                <td>J. D. Robinson Formula (1983)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+                document.getElementById('showResult').innerHTML = tabledata;
+
+
+
+            } else if (gender.id === "female") {
+                var idealWeiht = 45.5 + 2.2 * height;
+                tabledata += `<tr>
+                <td>G.J.Hamwi Formula(1964)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+
+                idealWeiht = 45.5 + 2.3 * height;
+                tabledata += `<tr>
+                <td>B. J. Devine Formula (1974)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+
+
+                idealWeiht = 49 + 1.7 * height;
+                tabledata += `<tr>
+                <td>J. D. Robinson Formula (1983)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+
+
+                idealWeiht = 53.1 + 1.36 * height;
+                tabledata += `<tr>
+                <td>J. D. Robinson Formula (1983)</td>
+                <td>${idealWeiht}</td>
+                </tr>`
+                document.getElementById('showResult').innerHTML = tabledata;
+
+            }
+
+
+        }
+    </script>
+
+</body>
